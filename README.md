@@ -1,5 +1,5 @@
 # toxic-comments-classification
-Sample deep learning model and code for Toxic Comments Classification Challenge on Kaggle. Adaptable mini framework for similar competitions.
+Sample deep learning model and code for Toxic Comments Classification Challenge on Kaggle. The code can be used as mini framework for similar competitions. It allows and automates experimentation with different models, saving experiments, model evaluation, Tensorboard visualization and final model training. 
 
 ## Built with:
 * Python 3.6.6
