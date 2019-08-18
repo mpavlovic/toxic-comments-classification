@@ -14,5 +14,23 @@ Sample deep learning model and code for Toxic Comments Classification Challenge 
 ## Workflow
 
 ### Making Experiments on Training Set
+For experimenting with different models, start with `main.py` file. It loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable. You can modify different hyperparameters in `hparams` dictionary:
+
+    hparams = {
+        'max_words': 50000, # for Tokenizer
+        'max_length': 180,
+        'batch_size': 512,
+        'epochs': 100,
+        'optimizer': optimizers.RMSprop(),
+        'tokenizer_filters': '!"#$%&()*+,-./:;<=>?@[\\]^_`{|}~\t\n',
+        'tokenizer_lower': True,
+        'tokenizer_split': " ",
+        'tokenizer_char_level': False,
+        'padding': 'post',
+        'truncating': 'post',
+        'tokenizer_oov_token': '<UNK>', # not a real hyperparameter
+        'n_classes': y_train.shape[1] # not a real hyperparameter
+    }
+
 ### Evaluating a Model on Test Set
 ### Training a Model on the whole Dataset
