@@ -14,7 +14,7 @@ Sample deep learning model and code for Toxic Comments Classification Challenge 
 ## Workflow
 
 ### Making Experiments on Training Set
-For experimenting with different models, start with `main.py` file. It loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable. You can modify different hyperparameters in `hparams` dictionary:
+For experimenting with different models, start with `main.py` file. It loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable (5 by default). You can modify different hyperparameters in `hparams` dictionary:
 
     hparams = {
         'max_words': 50000, # for Tokenizer
@@ -32,7 +32,7 @@ For experimenting with different models, start with `main.py` file. It loads tra
         'n_classes': y_train.shape[1] # not a real hyperparameter
     }
 
-Since this is a multilabel classification problem, the [`iterative-stratification`](https://github.com/trent-b/iterative-stratification) package is used for creating cross validation folds. Three main metrics are used for measuring model's performance: cross entropy loss, accuracy and ROC AUC (Receiver Operating Characteristic Area Under The Curve) - official competition's performance metric. The training procedure uses early stopping, with `patience=3` and minimizes validation loss.
+Since this is a multilabel classification problem, the [`iterative-stratification`](https://github.com/trent-b/iterative-stratification) package is used for creating cross validation folds. For measuring model's performance, three main metrics are used: cross entropy loss, accuracy and ROC AUC (Receiver Operating Characteristic Area Under The Curve) score - official competition's performance metric. The training procedure minimizes validation loss and uses early stopping with `patience=3`.
 
 ### Evaluating a Model on Test Set
 ### Training a Model on the whole Dataset
