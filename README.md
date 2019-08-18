@@ -32,5 +32,7 @@ For experimenting with different models, start with `main.py` file. It loads tra
         'n_classes': y_train.shape[1] # not a real hyperparameter
     }
 
+Since this is a multilabel classification problem, the [`iterative-stratification`](https://github.com/trent-b/iterative-stratification) package is used for creating cross validation folds. Three main metrics are used for measuring model's performance: cross entropy loss, accuracy and ROC AUC (Receiver Operating Characteristic Area Under The Curve) - official competition's performance metric. The training procedure uses early stopping, with `patience=3` and minimizes validation loss.
+
 ### Evaluating a Model on Test Set
 ### Training a Model on the whole Dataset
