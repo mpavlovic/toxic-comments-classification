@@ -48,9 +48,9 @@ Since this is a multilabel classification problem, the [`iterative-stratificatio
 
 __IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the rounded average number of epochs (from `results.txt`) before dumping `hparams` to `hparams.json` file. It's OK to set the `hparams['epochs']` to some big number before experiment because the early stopping is used.
 
-#### File for Model Selection
-
 #### Using TensorBoard
+
+### Model Selection
 
 ### Evaluating a Model on Test Set
 
