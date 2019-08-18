@@ -52,6 +52,6 @@ __IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the rounded avera
 
 ### Model Selection
 
-### Evaluating a Model on Test Set
+### Evaluation of the Selected Model on the Test Set
 
-### Training a Model on the whole Dataset
+### Training the Selected Model on the whole Dataset
