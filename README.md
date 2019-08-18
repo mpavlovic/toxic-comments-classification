@@ -13,7 +13,7 @@ Sample deep learning model and code for Toxic Comments Classification Challenge 
 
 ## Workflow
 
-### Making Experiments on Training Set
+### Making Experiments on the Training Set
 To start an experiment, edit your model in `build_model.py` file and run `main.py`. This file loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable (5 by default). You can modify different hyperparameters in `hparams` dictionary:
 
     hparams = {
@@ -49,6 +49,7 @@ Since this is a multilabel classification problem, the [`iterative-stratificatio
 __IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the rounded average number of epochs (from `results.txt`) before dumping `hparams` to `hparams.json` file. It's OK to set the `hparams['epochs']` to some big number before experiment because the early stopping is used.
 
 #### Using TensorBoard
+If you want to visualize different apects of learning with TensorBoard, please set the `USE_TENSORBOARD` variable in `main.py` to `True`. `tb_logs` folder will be used for storing TensorBoard log files. Each experiemnt's files will be stored to `tb_logs/<experiment_id>` directory. Before running the `main.py`, please run `tensorboard --logdir=path/to/log-directory` command where `path/to/log-directory` is the path to `tb_logs` directory or `tb_logs` itself. This command will work if it is called from activated Python environment where TensorBoard is installed. The last step is to open `localhost:6006` address with your browser.
 
 ### Model Selection
 
