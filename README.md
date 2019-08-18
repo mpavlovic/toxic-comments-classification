@@ -14,7 +14,7 @@ Sample deep learning model and code for Toxic Comments Classification Challenge 
 ## Workflow
 
 ### Making Experiments on Training Set
-For experimenting with different models, start with `main.py` file. It loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable (5 by default). You can modify different hyperparameters in `hparams` dictionary:
+To start an experiment, edit your model in `build_model.py` file and run `main.py`. This file loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable (5 by default). You can modify different hyperparameters in `hparams` dictionary:
 
     hparams = {
         'max_words': 50000, # for Tokenizer
@@ -32,7 +32,22 @@ For experimenting with different models, start with `main.py` file. It loads tra
         'n_classes': y_train.shape[1] # not a real hyperparameter
     }
 
-Since this is a multilabel classification problem, the [`iterative-stratification`](https://github.com/trent-b/iterative-stratification) package is used for creating cross validation folds. For measuring model's performance, three main metrics are used: cross entropy loss, accuracy and ROC AUC (Receiver Operating Characteristic Area Under The Curve) score - official competition's performance metric. The training procedure minimizes validation loss and uses early stopping with `patience=3`.
+Since this is a multilabel classification problem, the [`iterative-stratification`](https://github.com/trent-b/iterative-stratification) package is used for creating cross validation folds. For measuring model's performance, three main metrics are used: cross entropy loss, accuracy and ROC AUC (Receiver Operating Characteristic Area Under The Curve) score - official competition's performance metric. The training procedure minimizes validation loss and uses early stopping with `patience=3`. 
+
+#### Saving Experiment Results
+`main.py` file uses a function `train_model_cv` which trains a model through folds and saves results. This function assigns the unique ID to each experiment. After an experiment is finished, the results are saved to `experiments/<experiment_id>` directory. This directory contains following files:
+* `build_model.py` - a copy of original `build_model.py` file so you can modify it for different experiments
+* `hparams.json` - JSON dumped `hparams` dictionary from `main.py` file
+* `model_summary.txt` - the output from `model.summary()` method of `Keras` model
+* `model.json` - the output from `model.to_json()` method of `Keras` model - contains model architeccture
+* `results.txt` - textual description with averaged metrics and standard deviations across folds:
+    * _average minimal validation loss_
+    * _average train loss of minimal validation loss_ - might be useful for estimating overfitting impact
+    * _average validation ROC AUC score_ - averaged from epochs of minimal validation losses
+    * _average epoch of minimal validation loss_ - averaged number of epochs in which minimal validation loss is measured (through all folds)
+
+__IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the average number of epochs before dumping `hparams` to `hparams.json` file. It's OK to set the `hparams['epochs']` to some big number before experiment because the early stopping is used.
 
 ### Evaluating a Model on Test Set
+
 ### Training a Model on the whole Dataset
