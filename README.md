@@ -46,7 +46,9 @@ Since this is a multilabel classification problem, the [`iterative-stratificatio
     * _average validation ROC AUC score_ - averaged from epochs of minimal validation losses
     * _average epoch of minimal validation loss_ - averaged number of epochs in which minimal validation loss is measured (through all folds)
 
-__IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the average number of epochs before dumping `hparams` to `hparams.json` file. It's OK to set the `hparams['epochs']` to some big number before experiment because the early stopping is used.
+__IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the rounded average number of epochs (from `results.txt`) before dumping `hparams` to `hparams.json` file. It's OK to set the `hparams['epochs']` to some big number before experiment because the early stopping is used.
+
+#### Using TensorBoard
 
 ### Evaluating a Model on Test Set
 
