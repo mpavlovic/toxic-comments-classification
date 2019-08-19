@@ -1,10 +1,10 @@
 # toxic-comments-classification
-Single deep learning model and code for Toxic Comments Classification Challenge on Kaggle. The code is written as a simple framework for similar competitions. It allows and automates experimentation with different models, saving experiments, model evaluation, Tensorboard visualization and final model training. 
+Single deep learning model and code for Toxic Comments Classification Challenge on Kaggle. The code is written as a simple framework for similar competitions. It allows and automates experimentation with different models, experiments saving, model evaluation, TensorBoard visualization and final model training.
 
 ## Built with:
 * Python 3.6.6
+* Keras 2.2.0 
 * Tensorflow 1.10.0 (GPU version)
-* Keras 2.2.0
 * Scikit-learn 0.19.1
 * Iterative-stratification 0.1.6
 * Pandas 0.24.2
@@ -49,7 +49,7 @@ Since this is a multilabel classification problem, the [`iterative-stratificatio
 __IMPORTANT NOTICE:__ `hparams['epochs']` will be updated with the rounded average number of epochs (from `results.txt`) before dumping `hparams` to `hparams.json` file. It's OK to set the `hparams['epochs']` to some big number before experiment because the early stopping is used.
 
 #### Using TensorBoard
-If you want to visualize different apects of learning with TensorBoard, please set the `USE_TENSORBOARD` variable in `main.py` to `True`. `tb_logs` folder will be used for storing TensorBoard log files. Each experiemnt's files will be stored to `models/tb_logs/<experiment_id>/` directory. Before running the `main.py`, please run `tensorboard --logdir=path/to/log-directory` command where `path/to/log-directory` is the path to `tb_logs` directory or `tb_logs` itself. This command will work if it is called from activated Python environment where TensorBoard is installed. The last step is to open `localhost:6006` address with your browser.
+If you want to visualize different apects of learning with TensorBoard, please set the `USE_TENSORBOARD` variable in `main.py` to `True`. `tb_logs` folder will be used for storing TensorBoard log files. Each experiemnt's files will be stored to `models/tb_logs/<experiment_id>/` directory. Before running the `main.py`, please run `tensorboard --logdir=path/to/log-directory` command where `path/to/log-directory` is the path to `tb_logs` directory or `tb_logs` itself. This command will work if it is called from activated Python environment where TensorBoard is installed. The last step is to open `localhost:6006` address with your browser. More details are available [here](https://www.tensorflow.org/guide/summaries_and_tensorboard#launching_tensorboard).
 
 ### Model Selection
 Exept it stores results after each experiment, the `main.py` script also appends a results line to the `tcc_val_results.txt` file. This file is CSV formatted, so each line has the following form: <br><br>`<experiment_id>;<average_val_auc>;<average_min_val_loss>`.<br><br>Therefore, with experiment ID, each line contains average validation ROC AUC score and minimal validation loss. You can read this file with `pandas` or import it to Excel and sort the table by desired column to select the best performing model on validation folds.
