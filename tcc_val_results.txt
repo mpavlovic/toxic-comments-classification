@@ -1,0 +1,1 @@
+experiment_id;avg_val_auc;avg_min_val_loss
