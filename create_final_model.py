@@ -24,7 +24,10 @@ y_test = load_test_labels(TEST_DATA_LABELS_PATH, label_columns=LABEL_COLUMNS)
 # because we don't have their true labels
 mask = y_test[:,0] != -1 
 y_test_masked = y_test[mask]
-X_test_texts_masked = (X_test_texts[mask]).tolist()
+X_test_texts_masked = []
+for i in range(len(mask)):
+    if mask[i]:
+        X_test_texts_masked.append(X_test_texts[i])
 
 # train and test set will be concatenated to single dataset
 X_texts = X_train_texts + X_test_texts_masked
