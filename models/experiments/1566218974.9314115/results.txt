@@ -1,0 +1,4 @@
+Average min val loss is 0.04509 with std of 0.00055
+Average train loss of min val loss is 0.03882 with std of 0.00176
+Average val ROC AUC score is 0.98383 with std of 0.00134
+Average epoch of min val loss is 3.60 with std of 0.49 - rounded to 4

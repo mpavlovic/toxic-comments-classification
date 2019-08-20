@@ -1,0 +1,3 @@
+Test set ROC AUC score: 0.97736
+Test set loss: 0.07461
+Test set accuracy: 0.96954
