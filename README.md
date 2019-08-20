@@ -1,4 +1,4 @@
-# toxic-comments-classification
+# Toxic Comments Classification
 Single deep learning model and code for Toxic Comments Classification Challenge on Kaggle. The code is written as a simple framework for similar competitions. It allows and automates experimentation with different models, experiments saving, model evaluation, TensorBoard visualization and final model training.
 
 ## Built with:
