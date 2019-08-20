@@ -16,7 +16,7 @@ The convolutional-only model provided here achieves __0.97704__ ROC-AUC score on
 ## Workflow
 
 ### Making Experiments on the Training Set
-To start an experiment, edit your model in `build_model.py` file and run `main.py`. This file loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable (5 by default). You can modify different hyperparameters in `hparams` dictionary:
+To start an experiment, edit your model in `build_model.py` file and run `main.py` with `python main.py`. This file loads train and test data, evaluates all-zeros baseline model, fits `Tokenizer` instance on the whole dataset and runs a single cross validation experiment on training set, with the model from `build_model.py` file. The number of CV folds can be set in `N_FOLDS` variable (5 by default). You can modify different hyperparameters in `hparams` dictionary:
 
     hparams = {
         'max_words': 50000, # for Tokenizer
