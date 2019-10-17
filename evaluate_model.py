@@ -55,12 +55,12 @@ if __name__ == '__main__':
 
     print('Preparing test data:')
     X_test = create_padded_sequences(X_test_texts, tokenizer, hparams)
-    y_test_true = load_test_labels(TEST_DATA_LABELS_PATH, label_columns=LABEL_COLUMNS)
 
     print('Predicting on test set:')
     y_test_pred = model.predict(X_test, batch_size=2048)
 
     if TEST_DATA_LABELS_PATH is not None:
+        y_test_true = load_test_labels(TEST_DATA_LABELS_PATH, label_columns=LABEL_COLUMNS)
         mask = y_test_true[:,0] != -1 # test instances labeled with -1 weren't used for final scoring
         y_test_pred_masked = y_test_pred[mask]
         y_test_true_masked = y_test_true[mask]
