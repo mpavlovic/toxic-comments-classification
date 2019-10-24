@@ -11,7 +11,7 @@ Single deep learning model and code for Toxic Comments Classification Challenge 
 * Numpy 1.15.1
 
 ## Provided Model
-The convolutional-only model provided here achieves __0.97704__ ROC-AUC score on the private leaderbord after a late submission (`models/submissions/1566218974.9314115/`) and __0.97736__ on the whole test set. Better performance can be further achieved with advanced LSTM or pre-trained language models. The experiment with default setup takes around 27 minutes on GTX 1060 6 GB GPU. Final training takes 3-5 minutes. Below are instructions on how to experiment with different Keras model architectures.   
+The convolutional-only model provided here achieves __0.97704__ ROC-AUC score on the private leaderboard after a late submission (`models/submissions/1566218974.9314115/`) and __0.97736__ on the whole test set. Better performance can be further achieved with advanced LSTM or pre-trained language models. The experiment with default setup takes around 27 minutes on GTX 1060 6 GB GPU. Final training takes 3-5 minutes. Below are instructions on how to experiment with different Keras model architectures.   
 
 ## Workflow
 
